@@ -140,17 +140,18 @@ func (q *Query) One(result interface{}) error {
 
 // All query multiple records that meet the filter conditions
 // The static type of result must be a slice pointer
-func (q *Query) All(result interface{}, opts ...*options.FindOptions) error {
+func (q *Query) All(result interface{}) error {
+	opt := options.Find()
 	if len(q.opts) > 0 {
 		if err := middleware.Do(q.opts[0].QueryHook, operator.BeforeQuery); err != nil {
 			return err
 		}
+		if q.opts[0].FindOptions != nil {
+			opt = q.opts[0].FindOptions
+		}
 	}
 
-	opt := options.Find()
-	if len(opts) > 0 {
-		opt = opts[0]
-	}
+
 	if q.sort != nil {
 		opt.SetSort(q.sort)
 	}
@@ -248,6 +249,11 @@ func (q *Query) Distinct(key string, result interface{}) error {
 // After obtaining the CursorI object, you should actively call the Close interface to close the cursor
 func (q *Query) Cursor() CursorI {
 	opt := options.Find()
+	if len(q.opts) > 0 {
+		if q.opts[0].FindOptions != nil {
+			opt = q.opts[0].FindOptions
+		}
+	}
 
 	if q.sort != nil {
 		opt.SetSort(q.sort)

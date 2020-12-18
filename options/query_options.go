@@ -13,6 +13,9 @@
 
 package options
 
+import "go.mongodb.org/mongo-driver/mongo/options"
+
 type FindOptions struct {
-	QueryHook interface{}
+	QueryHook   interface{}
+	FindOptions *options.FindOptions
 }
