@@ -140,14 +140,17 @@ func (q *Query) One(result interface{}) error {
 
 // All query multiple records that meet the filter conditions
 // The static type of result must be a slice pointer
-func (q *Query) All(result interface{}) error {
+func (q *Query) All(result interface{}, opts ...*options.FindOptions) error {
 	if len(q.opts) > 0 {
 		if err := middleware.Do(q.opts[0].QueryHook, operator.BeforeQuery); err != nil {
 			return err
 		}
 	}
-	opt := options.Find()
 
+	opt := options.Find()
+	if len(opts) > 0 {
+		opt = opts[0]
+	}
 	if q.sort != nil {
 		opt.SetSort(q.sort)
 	}
