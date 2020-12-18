@@ -1,6 +1,6 @@
-module github.com/qiniu/qmgo
+module github.com/xenking/qmgo
 
-go 1.14
+go 1.15
 
 require (
 	github.com/go-playground/validator/v10 v10.4.1
