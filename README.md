@@ -1,10 +1,10 @@
 # Qmgo 
 
-[![Build Status](https://travis-ci.org/qiniu/qmgo.png?branch=master)](https://travis-ci.org/qiniu/qmgo)
-[![Coverage Status](https://codecov.io/gh/qiniu/qmgo/branch/master/graph/badge.svg)](https://codecov.io/gh/qiniu/qmgo)
-[![Go Report Card](https://goreportcard.com/badge/github.com/qiniu/qmgo)](https://goreportcard.com/report/github.com/qiniu/qmgo)
-[![GitHub release](https://img.shields.io/github/v/tag/qiniu/qmgo.svg?label=release)](https://github.com/qiniu/qmgo/releases)
-[![GoDoc](https://pkg.go.dev/badge/github.com/qiniu/qmgo?status.svg)](https://pkg.go.dev/github.com/qiniu/qmgo?tab=doc) 
+[![Build Status](https://travis-ci.org/xenking/qmgo.png?branch=master)](https://travis-ci.org/xenking/qmgo)
+[![Coverage Status](https://codecov.io/gh/xenking/qmgo/branch/master/graph/badge.svg)](https://codecov.io/gh/xenking/qmgo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/xenking/qmgo)](https://goreportcard.com/report/github.com/xenking/qmgo)
+[![GitHub release](https://img.shields.io/github/v/tag/xenking/qmgo.svg?label=release)](https://github.com/xenking/qmgo/releases)
+[![GoDoc](https://pkg.go.dev/badge/github.com/xenking/qmgo?status.svg)](https://pkg.go.dev/github.com/xenking/qmgo?tab=doc) 
 [![Join the chat at https://gitter.im/qiniu/qmgo](https://badges.gitter.im/qiniu/qmgo.svg)](https://gitter.im/qiniu/qmgo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 English | [简体中文](README_ZH.md)
@@ -34,11 +34,11 @@ English | [简体中文](README_ZH.md)
 
 ## Installation
 
-- Use `go mod` to automatically install dependencies by `import github.com/qiniu/qmgo`
+- Use `go mod` to automatically install dependencies by `import github.com/xenking/qmgo`
 
 Or 
 
-- Use `go get github.com/qiniu/qmgo`
+- Use `go get github.com/xenking/qmgo`
 
 ## Usage
 
@@ -49,7 +49,7 @@ Or
     import (
         "context"
       
-        "github.com/qiniu/qmgo"
+        "github.com/xenking/qmgo"
     )
     
     ctx := context.Background()
