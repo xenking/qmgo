@@ -27,6 +27,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/description"
 	opts "go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"go.mongodb.org/mongo-driver/mongo/writeconcern"
 	"go.mongodb.org/mongo-driver/x/mongo/driver/connstring"
 	"go.mongodb.org/mongo-driver/x/mongo/driver/topology"
 )
@@ -59,6 +60,9 @@ type Config struct {
 	ReadPreference *ReadPref `json:"readPreference"`
 	// can be used to provide authentication options when configuring a Client.
 	Auth *Credential `json:"auth"`
+	// WriteConcern describes the level of acknowledgement requested from MongoDB for write operations
+	// to a standalone mongod or to replica sets or to sharded clusters.
+	WriteConcern *writeconcern.WriteConcern `json:"writeConcern"`
 }
 
 // Credential can be used to provide authentication options when configuring a Client.
@@ -212,6 +216,10 @@ func newConnectOpts(conf *Config, o ...options.ClientOptions) (*opts.ClientOptio
 		}
 		option.SetAuth(auth)
 	}
+	if conf.WriteConcern != nil {
+		option.SetWriteConcern(conf.WriteConcern)
+	}
+
 	option.ApplyURI(conf.Uri)
 
 	return option, nil
